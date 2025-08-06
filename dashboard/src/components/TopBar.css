@@ -1,0 +1,83 @@
+.auth-button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.auth-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.auth-btn.logout {
+  background-color: #e53935;
+  color: white;
+}
+
+.auth-btn.logout:hover {
+  background-color: #c62828;
+}
+
+.auth-btn.login,
+.auth-btn.register {
+  background-color: #2196f3;
+  color: white;
+}
+
+.auth-btn.login:hover,
+.auth-btn.register:hover {
+  background-color: #1976d2;
+}
+
+.welcome-msg {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.auth-button-container {
+  margin-right: 20px;
+}
+
+.auth-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.auth-btn.logout {
+  background-color: #e53935;
+  color: white;
+}
+
+.auth-btn.logout:hover {
+  background-color: #c62828;
+}
+
+.auth-btn.login {
+  background-color: #2196f3;
+  color: white;
+}
+
+.auth-btn.login:hover {
+  background-color: #1976d2;
+}
+
+.auth-btn.register {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.auth-btn.register:hover {
+  background-color: #388e3c;
+}
