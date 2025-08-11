@@ -1,10 +1,11 @@
 require('dotenv').config();
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const path = require("path"); // ✅ added for serving frontend
+const path = require("path");
 
 const { HoldingsModel } = require('./model/HoldingsModel');
 const { PositionsModel } = require('./model/PositionsModel');
@@ -96,10 +97,11 @@ app.get("/api/test-cookie", (req, res) => {
   res.json(req.cookies);
 });
 
-// ✅ Serve frontend build for all other routes
-app.use(express.static(path.join(__dirname, "build")));
+// ✅ Serve frontend build for all non-API routes
+const buildPath = path.join(__dirname, "../dashboard/build"); // adjust if needed
+app.use(express.static(buildPath));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(path.join(buildPath, "index.html"));
 });
 
 // ✅ MongoDB Connection and Server Start
