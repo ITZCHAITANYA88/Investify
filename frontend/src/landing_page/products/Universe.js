@@ -11,7 +11,7 @@ function Universe() {
                 marginTop: "40px"    // Adds space below the heading
             }}
             >
-            Want to know more about our technology stack? Check out the <a href="https://zerodha.tech/" style={{textDecoration: "none"}}>Zerodha.tech</a> blog.
+            Want to know more about our technology stack? Check out the <a href="https://investify-1.onrender.com" style={{textDecoration: "none"}}>Zerodha.tech</a> blog.
         </h4>
          <h3
             style={{
