@@ -5,7 +5,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const path = require("path");
 
 const { HoldingsModel } = require('./model/HoldingsModel');
 const { PositionsModel } = require('./model/PositionsModel');
@@ -95,13 +94,6 @@ app.get('/api/allPositions', async (req, res) => {
 app.get("/api/test-cookie", (req, res) => {
   console.log("Cookies:", req.cookies);
   res.json(req.cookies);
-});
-
-// ✅ Serve frontend build for all non-API routes
-const buildPath = path.join(__dirname, "../dashboard/build"); // adjust if needed
-app.use(express.static(buildPath));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(buildPath, "index.html"));
 });
 
 // ✅ MongoDB Connection and Server Start
