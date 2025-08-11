@@ -6,7 +6,7 @@ const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/allHoldings")
+    axios.get("https://investify-smft.onrender.com/api/allHoldings")
       .then((res) => {
         console.log(res.data);
         setAllHoldings(res.data);

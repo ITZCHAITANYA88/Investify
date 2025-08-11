@@ -21,7 +21,7 @@ const BuyActionWindow = ({ uid }) => {
     };
 
     try {
-      await axios.post("http://localhost:5000/newOrder", order);
+      await axios.post("https://investify-smft.onrender.com/api/newOrder", order);
       placeOrder(order); // ✅ store in context
       closeBuyWindow();
     } catch (err) {

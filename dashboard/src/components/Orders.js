@@ -7,7 +7,7 @@ const Orders = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allOrders")
+      .get("https://investify-smft.onrender.com/api/allOrders")
       .then((res) => {
         setOrders(res.data); // assuming backend already sorts by createdAt
       })
