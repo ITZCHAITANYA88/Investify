@@ -15,11 +15,24 @@ const MONGO_URL = process.env.MONGO_URL;
 
 const app = express();
 
-// Middleware
+// ✅ Allowed frontend origins
+const allowedOrigins = [
+  "https://investify-1.onrender.com", // deployed frontend
+  "http://localhost:3000"             // local dev
+];
+
+// ✅ Flexible CORS
 app.use(cors({
-  origin: "https://investify-1.onrender.com", // Frontend URL
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
+
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
@@ -77,6 +90,7 @@ app.get('/allPositions', async (req, res) => {
   }
 });
 
+// Test endpoint
 app.get("/api/test-cookie", (req, res) => {
   console.log("Cookies:", req.cookies);
   res.json(req.cookies);
