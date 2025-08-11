@@ -1,20 +1,46 @@
-import React from 'react'
+// src/components/Navbar.js
+import React from "react";
+import { Link } from "react-router-dom";
 
-function OpenAccount() {
-    return ( 
-        <div className='container p-5'>
-            <div className='row text-center'>
-                <h1 className='mt-5'>Open a Zerodha account</h1>
-                <p>Modern platforms and apps, ₹0 investments, and flat ₹20 intraday and F&O trades.</p>
-                <button
-                    className="p-2 btn btn-primary fs-5  mt-2"
-                    style={{ width: "20%", margin: "0 auto" }}
-                    >
-                    Sign up for free
-                </button>
-            </div>
-        </div>
-     );
-}
+const Navbar = () => {
+  return (
+    <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+      {/* Logo / Brand Name */}
+      <Link to="/" className="text-2xl font-bold text-indigo-600">
+        Investify
+      </Link>
 
-export default OpenAccount;
+      {/* Navigation Links */}
+      <div className="flex items-center space-x-6">
+        <Link
+          to="/"
+          className="text-gray-700 hover:text-indigo-600 transition-colors"
+        >
+          Home
+        </Link>
+        <Link
+          to="/about"
+          className="text-gray-700 hover:text-indigo-600 transition-colors"
+        >
+          About
+        </Link>
+        <Link
+          to="/contact"
+          className="text-gray-700 hover:text-indigo-600 transition-colors"
+        >
+          Contact
+        </Link>
+
+        {/* Sign Up for Free Button */}
+        <Link
+          to="/signup"
+          className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
+        >
+          Sign Up for Free
+        </Link>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
