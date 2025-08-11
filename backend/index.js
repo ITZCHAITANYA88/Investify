@@ -42,7 +42,7 @@ const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
 // 🔁 Orders API
-app.post("/newOrder", async (req, res) => {
+app.post("/api/newOrder", async (req, res) => {
   try {
     let newOrder = new OrdersModel({
       name: req.body.name,
@@ -59,7 +59,7 @@ app.post("/newOrder", async (req, res) => {
   }
 });
 
-app.get('/allOrders', async (req, res) => {
+app.get('/api/allOrders', async (req, res) => {
   try {
     const allOrders = await OrdersModel.find({}).sort({ createdAt: -1 });
     res.json(allOrders);
@@ -70,7 +70,7 @@ app.get('/allOrders', async (req, res) => {
 });
 
 // 🔁 Holdings & Positions API
-app.get('/allHoldings', async (req, res) => {
+app.get('/api/allHoldings', async (req, res) => {
   try {
     const allHoldings = await HoldingsModel.find({});
     res.json(allHoldings);
@@ -80,7 +80,7 @@ app.get('/allHoldings', async (req, res) => {
   }
 });
 
-app.get('/allPositions', async (req, res) => {
+app.get('/api/allPositions', async (req, res) => {
   try {
     const allPositions = await PositionsModel.find({});
     res.json(allPositions);
