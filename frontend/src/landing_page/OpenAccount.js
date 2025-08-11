@@ -2,7 +2,7 @@ import React from 'react';
 
 function OpenAccount() {
     const handleSignUpClick = () => {
-        window.location.href = "https://investify-1.onrender.com/signup";
+        window.open("https://investify-1.onrender.com/signup", "_self");
     };
 
     return ( 
