@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../utils/axios";
-import "./AuthForm.css"; // Reuse this for styling if you already created it for Login
+import "./AuthForm.css"; // Reuse styling
 
 const Register = () => {
   const [form, setForm] = useState({ username: "", password: "" });
@@ -12,21 +12,31 @@ const Register = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    await API.post("/auth/register", form);
-    alert("Registration successful!");
-    navigate("/dashboard"); // ✅ Redirect here
-  } catch (err) {
-    alert(err.response?.data?.error || "Registration failed");
-  }
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if passwords match
+    if (form.password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      // Send registration request
+      await API.post("/auth/register", form);
+
+      alert("Registration successful! Please login.");
+      navigate("/login"); // Redirect to login after successful registration
+    } catch (err) {
+      alert(err.response?.data?.error || "Registration failed");
+    }
+  };
 
   return (
     <div className="auth-form-container">
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2>Create Account</h2>
+
         <input
           name="username"
           placeholder="Username"
@@ -34,6 +44,7 @@ const handleSubmit = async (e) => {
           onChange={handleChange}
           required
         />
+
         <input
           type="password"
           name="password"
@@ -42,6 +53,7 @@ const handleSubmit = async (e) => {
           onChange={handleChange}
           required
         />
+
         <input
           type="password"
           name="confirmPassword"
@@ -50,8 +62,10 @@ const handleSubmit = async (e) => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
+
         <button type="submit">Register</button>
-        <p onClick={() => navigate("/login")} className="auth-link">
+
+        <p className="auth-link" onClick={() => navigate("/login")}>
           Already have an account? Login
         </p>
       </form>

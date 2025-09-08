@@ -10,7 +10,16 @@ const TopBar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    API.get("/auth/me")
+    const token = localStorage.getItem("token"); // ✅ get token from localStorage
+    if (!token) {
+      setIsAuthenticated(false);
+      setUsername("");
+      return;
+    }
+
+    API.get("/auth/me", {
+      headers: { Authorization: `Bearer ${token}` }, // ✅ send token
+    })
       .then((res) => {
         setIsAuthenticated(true);
         setUsername(res.data.username);
@@ -23,7 +32,11 @@ const TopBar = () => {
 
   const handleLogout = async () => {
     try {
-      await API.post("/auth/logout");
+      const token = localStorage.getItem("token");
+      await API.post("/auth/logout", null, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      localStorage.removeItem("token"); // ✅ remove token on logout
       setIsAuthenticated(false);
       setUsername("");
       navigate("/login");

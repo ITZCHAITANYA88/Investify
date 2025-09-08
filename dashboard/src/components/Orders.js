@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Orders.css";
+import { API_URL } from "./config"; // ✅ import local API URL
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://investify-smft.onrender.com/api/allOrders")
+      .get(`${API_URL}/allOrders`) // ✅ local API call
       .then((res) => {
         setOrders(res.data); // assuming backend already sorts by createdAt
       })

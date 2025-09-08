@@ -1,133 +1,73 @@
 import React from "react";
 
+// CRA uses process.env.REACT_APP_* instead of import.meta.env
+const frontendUrl =
+  process.env.REACT_APP_FRONTEND_URL || "http://localhost:3000";
+
 function Universe() {
   return (
     <div className="container mt-5">
       <div className="row text-center">
-       <h4
-            style={{
-                fontWeight: "350",       // Less bold (normal)
-                marginBottom: "160px",
-                marginTop: "40px"    // Adds space below the heading
-            }}
-            >
-            Want to know more about our technology stack? Check out the <a href="https://investify-1.onrender.com" style={{textDecoration: "none"}}>Zerodha.tech</a> blog.
+        {/* Blog link */}
+        <h4
+          style={{
+            fontWeight: "350",
+            marginTop: "40px",
+            marginBottom: "60px",
+          }}
+        >
+          Want to know more about our technology stack? Check out the{" "}
+          <a href={frontendUrl} style={{ textDecoration: "none" }}>
+            Zerodha.tech
+          </a>{" "}
+          blog.
         </h4>
-         <h3
-            style={{
-                fontWeight: "450",       // Less bold (normal)
 
-            }}
-            >
-            The Zerodha Universe
-        </h3>
-        <p>
+        {/* Section heading */}
+        <h3 style={{ fontWeight: "450" }}>The Zerodha Universe</h3>
+        <p className="text-muted mb-5">
           Extend your trading and investment experience even further with our
           partner platforms
         </p>
 
-        <div className="col-4 p-3 mt-5">
-          <img src="/media/images/zerodhaFundhouse.png" alt="smallcase" style={{ width: "60%", height: "auto" }}/>
-            <p
-                className="text-muted text-center mt-4"
-                style={{
-                    fontSize: "0.75rem",      // Small text (12px)
-                    width: "60%",
-                    lineHeight: "1.4",
-                    margin: "0 auto",         // Centers the paragraph horizontally
-                }}
-                >
-                Our asset management venture that is creating simple and transparent index
-                funds to help you save for your goals.
-            </p>
-        </div>
-        <div className="col-4 p-3 mt-5">
-          <img src="/media/images/sensibullLogo.svg" alt="smallcase" style={{ width: "60%", height: "auto" }}/>
-            <p
-                className="text-muted text-center mt-5"
-                style={{
-                    fontSize: "0.75rem",      // Small text (12px)
-                    width: "70%",
-                    lineHeight: "1.4",
-                    margin: "0 auto",         // Centers the paragraph horizontally
-                }}
-                >
-                Options trading platform that lets you
-                create strategies, analyze positions, and examine
-                data points like open interest, FII/DII, and more.
+        {/* Partner cards section (placeholder) */}
+        <div className="row g-4 justify-content-center mb-5">
+          {/* Example card - replace with real ones */}
+          <div className="col-10 col-md-4 col-lg-3">
+            <div className="card h-100 shadow-sm">
+              <div className="card-body">
+                <h5 className="card-title">Smallcase</h5>
+                <p className="card-text text-muted">
+                  Curated baskets of stocks for long-term investing.
+                </p>
+                <a href={frontendUrl} className="stretched-link">
+                  Learn more
+                </a>
+              </div>
+            </div>
+          </div>
 
-            </p>
+          <div className="col-10 col-md-4 col-lg-3">
+            <div className="card h-100 shadow-sm">
+              <div className="card-body">
+                <h5 className="card-title">Streak</h5>
+                <p className="card-text text-muted">
+                  Backtest and deploy trading strategies without coding.
+                </p>
+                <a href={frontendUrl} className="stretched-link">
+                  Learn more
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="col-4 p-3 mt-5">
-          <img src="/media/images/tijori.svg" alt="smallcase" style={{ width: "60%", height: "auto" }}/>
-            <p
-                className="text-muted text-center mt-2"
-                style={{
-                    fontSize: "0.75rem",      // Small text (12px)
-                    width: "60%",
-                    lineHeight: "1.4",
-                    margin: "0 auto",         // Centers the paragraph horizontally
-                }}
-                >
-                Investment research platform
-                that offers detailed insights on stocks,
-                sectors, supply chains, and more.
-            </p>
+
+        {/* Signup button */}
+        <div className="d-flex justify-content-center">
+          <button className="btn btn-primary fs-5 px-4 py-2 mb-5">
+            Sign up for free
+          </button>
         </div>
-        <div className="col-4 p-3 mt-5">
-          <img src="/media/images/streakLogo.png" alt="smallcase" style={{ width: "60%", height: "auto" }}/>
-            <p
-                className="text-muted text-center mt-2"
-                style={{
-                    fontSize: "0.75rem",      // Small text (12px)
-                    width: "60%",
-                    lineHeight: "1.4",
-                    margin: "0 auto",         // Centers the paragraph horizontally
-                }}
-                >
-                Systematic trading platform
-                that allows you to create and backtest
-                strategies without coding.
-            </p>
-        </div>
-        <div className="col-4 p-3 mt-5">
-          <img src="/media/images/smallcaseLogo.png" alt="smallcase" style={{ width: "60%", height: "auto" }}/>
-            <p
-                className="text-muted text-center mt-4"
-                style={{
-                    fontSize: "0.75rem",      // Small text (12px)
-                    width: "60%",
-                    lineHeight: "1.4",
-                    margin: "0 auto",         // Centers the paragraph horizontally
-                }}
-                >
-                Thematic investing platform
-                that helps you invest in diversified
-                baskets of stocks on ETFs.
-            </p>
-        </div>
-        <div className="col-4 p-3 mt-5">
-          <img src="/media/images/dittoLogo.png" alt="smallcase" style={{ width: "50%", height: "auto" }}/>
-            <p
-                className="text-muted text-center mt-2"
-                style={{
-                    fontSize: "0.75rem",      // Small text (12px)
-                    width: "50%",
-                    lineHeight: "1.4",
-                    margin: "0 auto",         // Centers the paragraph horizontally
-                }}
-                >
-                Personalized advice on life
-                and health insurance. No spam
-                and no mis-selling.
-            </p>
-        </div>
-        <button
-          className="p-2 btn btn-primary fs-5 mb-5 mt-5"
-          style={{ width: "20%", margin: "0 auto" }}
-        >
-          Sign up for free
-        </button>
       </div>
     </div>
   );

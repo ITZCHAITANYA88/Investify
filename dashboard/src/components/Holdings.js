@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { VerticalGraph } from "./VerticalGraph";
+import { API_URL } from "./config"; // ✅ import local API URL
 
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("https://investify-smft.onrender.com/api/allHoldings")
+    axios
+      .get(`${API_URL}/allHoldings`) // ✅ local API call
       .then((res) => {
         console.log(res.data);
         setAllHoldings(res.data);

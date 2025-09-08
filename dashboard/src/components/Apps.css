@@ -1,0 +1,31 @@
+.wip-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 70px); /* adjust for TopBar height */
+  background-color: #f4f6f8;
+}
+
+.wip-card {
+  text-align: center;
+  background-color: #fff;
+  padding: 60px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wip-title {
+  font-size: 2rem;
+  color: #ff9800;
+  margin-bottom: 20px;
+}
+
+.wip-message {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.wip-illustration svg {
+  stroke: #ff9800;
+}

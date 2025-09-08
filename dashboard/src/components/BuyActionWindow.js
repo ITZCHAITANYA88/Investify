@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import GeneralContext from "./GeneralContext";
+import { API_URL } from "./config"; // ✅ import local API URL
 
 import "./BuyActionWindow.css";
 
@@ -9,7 +10,7 @@ const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
 
-  const { closeBuyWindow, placeOrder } = useContext(GeneralContext); // ✅ include placeOrder
+  const { closeBuyWindow, placeOrder } = useContext(GeneralContext);
 
   const handleBuyClick = async () => {
     const order = {
@@ -21,8 +22,8 @@ const BuyActionWindow = ({ uid }) => {
     };
 
     try {
-      await axios.post("https://investify-smft.onrender.com/api/newOrder", order);
-      placeOrder(order); // ✅ store in context
+      await axios.post(`${API_URL}/newOrder`, order); // ✅ local API call
+      placeOrder(order);
       closeBuyWindow();
     } catch (err) {
       console.error("Failed to place buy order:", err);

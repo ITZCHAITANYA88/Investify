@@ -1,20 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav
-      className="navbar navbar-expand-lg bg-white border-bottom"
-      style={{ padding: "1rem 2rem" }}
-    >
+    <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom" style={{ padding: "1rem 2rem" }}>
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          <img
-            src="/media/images/logo.svg"
-            alt="Zerodha Logo"
-            style={{ height: "24px" }}
-          />
-        </Link>
+        {/* Brand Logo */}
+        <NavLink className="navbar-brand" to="/">
+          <img src="/media/images/logo.svg" alt="Zerodha Logo" style={{ height: "24px" }} />
+        </NavLink>
+
+        {/* Hamburger Toggle */}
         <button
           className="navbar-toggler"
           type="button"
@@ -27,22 +23,33 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
+        {/* Collapsible Links */}
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul className="navbar-nav gap-3">
+          <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link text-dark" to="/signup">Signup</Link>
+              <NavLink className={({ isActive }) => `nav-link fw-semibold ${isActive ? "text-primary" : "text-dark"}`} to="/signup">
+                Signup
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-dark" to="/about">About</Link>
+              <NavLink className={({ isActive }) => `nav-link fw-semibold ${isActive ? "text-primary" : "text-dark"}`} to="/about">
+                About
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-dark" to="/product">Products</Link>
+              <NavLink className={({ isActive }) => `nav-link fw-semibold ${isActive ? "text-primary" : "text-dark"}`} to="/product">
+                Products
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-dark" to="/pricing">Pricing</Link>
+              <NavLink className={({ isActive }) => `nav-link fw-semibold ${isActive ? "text-primary" : "text-dark"}`} to="/pricing">
+                Pricing
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-dark" to="/support">Support</Link>
+              <NavLink className={({ isActive }) => `nav-link fw-semibold ${isActive ? "text-primary" : "text-dark"}`} to="/support">
+                Support
+              </NavLink>
             </li>
           </ul>
         </div>
